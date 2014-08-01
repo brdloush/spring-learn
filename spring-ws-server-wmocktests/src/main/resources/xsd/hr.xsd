@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://mycompany.com/hr/schemas"
+	elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:hr="http://mycompany.com/hr/schemas"
+	xmlns:tns="http://mycompany.com/hr/schemas">
+
+
+  
+    
+    <complexType name="Holiday">
+   		<sequence>
+   				<element name="StartDate" minOccurs="1" maxOccurs="1"	type="date" />
+   				<element name="EndDate" minOccurs="1" maxOccurs="1"	type="date" />
+   		</sequence>
+    </complexType>
+
+    <complexType name="Employee">
+    	<sequence>
+   				<element name="Number" minOccurs="1" maxOccurs="1"	type="int" />
+   				<element name="FirstName" minOccurs="1" maxOccurs="1"	type="string" />
+   				<element name="LastName" minOccurs="1" maxOccurs="1"	type="string" />
+    	</sequence>
+    </complexType>
+    
+    <element name="HolidayRequest">
+	   <complexType >
+	   		<sequence>
+	   				<element name="Holiday" minOccurs="1" maxOccurs="1"	type="hr:Holiday" />
+	   				<element name="Employee" minOccurs="1" maxOccurs="1" type="hr:Employee" />
+	   		</sequence>
+	   	</complexType>
+   	
+   	   </element>
+    
+    <element name="HolidayResponse">
+		<complexType >
+	   		<sequence>
+	   				<element name="responseCode" minOccurs="1" maxOccurs="1"	type="string" />
+	   		</sequence>
+	   	</complexType>
+    </element> 
+    
+</schema>
