@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.brdloush.spring-learn</groupId>
-	<artifactId>spring-ws-server-wmocktests</artifactId>
-	<packaging>war</packaging>
+	<artifactId>spring-ws-schema</artifactId>
+	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>holidayService Spring-WS Application</name>
+	<name>XSD schema and JAXB2 generated classes</name>
 	<url>http://www.springframework.org/spring-ws</url>
 	
 	<build>
-		<finalName>spring-ws-server-wmocktests</finalName>
+		<finalName>spring-ws-schema</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -26,19 +26,22 @@
 
 
 			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>maven-jetty-plugin</artifactId>
-				<version>6.1.10</version>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<scanIntervalSeconds>0</scanIntervalSeconds>
-					<connectors>
-						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8080</port>
-							<maxIdleTime>60000</maxIdleTime>
-						</connector>
-					</connectors>
+					<schemaDirectory>src/main/resources/xsd</schemaDirectory>
+					<!-- <bindingDirectory>src/main/resources/binding</bindingDirectory> -->
 				</configuration>
 			</plugin>
+
 
 		</plugins>
 
@@ -46,12 +49,6 @@
 
 
 	<dependencies>
-
-		<dependency>
-			<groupId>com.github.brdloush.spring-learn</groupId>
-			<artifactId>spring-ws-schema</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.mockito</groupId>

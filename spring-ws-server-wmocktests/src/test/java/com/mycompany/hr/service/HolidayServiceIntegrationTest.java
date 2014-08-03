@@ -67,7 +67,7 @@ public class HolidayServiceIntegrationTest {
       + "      </hr:HolidayRequest>");
     StringSource responsePayload = new StringSource(
       "<ns2:HolidayResponse xmlns:ns2='http://mycompany.com/hr/schemas'>"
-      + "  <ns2:responseCode>ok!</ns2:responseCode>"
+      + "  <ns2:responseCode>OK - response comming from HolidayEndpoint. Values received:Tomas(lastName = Brejla, customerId = 42)</ns2:responseCode>"
       + "</ns2:HolidayResponse>");
 
     

@@ -66,7 +66,7 @@ private org.springframework.xml.xpath.XPathExpression holidayRequestFirstNameExp
 
 	    // return response
 	    HolidayResponse res = new HolidayResponse();
-	    res.setResponseCode("ok!");
+	    res.setResponseCode("OK - response comming from HolidayEndpoint. Values received:" +name);
 	    return res;
 	}
 
